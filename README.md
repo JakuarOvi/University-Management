@@ -79,3 +79,12 @@ docker run --rm -p 8080:8080 university-management
 ## Original desktop app
 
 The original NetBeans Swing app is under `src/university/management`. It is separate from the Spring Boot app in `src/main/java` and can be opened as a NetBeans project.
+
+To build and run the original desktop app, install JDK 23 or newer and Apache Ant 1.10 or newer, then run these commands from the repository root:
+
+```bash
+ant -f build.xml jar
+ant -f build.xml run
+```
+
+Ant downloads the desktop app's third-party libraries into the ignored `lib/` directory on the first build. Running its database-backed features also requires a configured MySQL server and the legacy `uniproject` schema.

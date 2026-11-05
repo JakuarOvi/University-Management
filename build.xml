@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="University Management" default="default" basedir=".">
+    <description>Builds and runs the University Management application.</description>
+    <property name="lib.dir" location="lib"/>
+    <condition property="desktop.dependencies.available">
+        <and>
+            <available file="${lib.dir}/jcalendar-tz-1.3.3-4.jar"/>
+            <available file="${lib.dir}/mysql-connector-j-9.2.0.jar"/>
+            <available file="${lib.dir}/rs2xml.jar"/>
+        </and>
+    </condition>
+    <target name="resolve-desktop-libraries" unless="desktop.dependencies.available">
+        <mkdir dir="${lib.dir}"/>
+        <get src="https://repo.maven.apache.org/maven2/com/mysql/mysql-connector-j/9.2.0/mysql-connector-j-9.2.0.jar"
+             dest="${lib.dir}/mysql-connector-j-9.2.0.jar" skipexisting="true"/>
+        <get src="https://repo.maven.apache.org/maven2/com/luuuis/jcalendar-tz/1.3.3-4/jcalendar-tz-1.3.3-4.jar"
+             dest="${lib.dir}/jcalendar-tz-1.3.3-4.jar" skipexisting="true"/>
+        <get src="https://downloads.sourceforge.net/project/finalangelsanddemons/rs2xml.jar"
+             dest="${lib.dir}/rs2xml.jar" skipexisting="true"/>
+    </target>
+    <target name="-pre-init" depends="resolve-desktop-libraries"/>
+    <import file="nbproject/build-impl.xml"/>
+</project>
