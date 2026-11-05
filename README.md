@@ -1,118 +1,46 @@
-# 🎓 University Management System
+# University Management Web App
 
-A Java-based University Management System developed to simplify and organize university-related activities through a software application.
+This repository now includes a deploy-ready Spring Boot web application built on top of the original Java Swing project.
 
-This project is developed as part of my academic learning journey, focusing on Java programming, object-oriented concepts, and practical software development.
+## What was added
 
-## 📌 Project Overview
+- Spring Boot web app
+- Login page with admin credentials
+- Dashboard with student and teacher counts
+- Student and teacher management screens
+- Docker support
+- Render deployment config
 
-The **University Management System** is designed to provide a digital solution for managing university information and academic-related operations.
+## Run locally
 
-The project demonstrates how Java can be used to develop a structured application for university management.
+```bash
+./mvnw spring-boot:run
+```
 
-## ✨ Features
-
-- 🎓 University Management
-- 💻 Java-Based Application
-- 🗂️ Organized Project Structure
-- 🧩 Object-Oriented Programming Concepts
-- 📚 Academic Project
-- 🛠️ Practical Java Development
-
-> Note: Add the specific management modules and functionality implemented in your source code here.
-
-## 🛠️ Technologies Used
-
-- **Programming Language:** Java
-- **IDE / Project Environment:** NetBeans-compatible project structure
-- **Build System:** NetBeans project configuration
-
-## 📂 Project Structure
+Then open:
 
 ```text
-University-Management/
-│
-├── build/
-│   └── classes/
-│
-├── nbproject/
-│   └── NetBeans project configuration
-│
-├── src/
-│   └── Java source files
-│
-└── README.md
+http://localhost:8080
 ```
 
-## 🚀 Getting Started
+Default login:
 
-### Prerequisites
-
-Before running the project, make sure you have:
-
-- Java Development Kit (JDK)
-- NetBeans IDE or another Java-compatible IDE
-- Git (optional, for cloning the repository)
-
-### Installation
-
-**1. Clone the repository**
-
-```bash
-git clone https://github.com/JakuarOvi/University-Management.git
+```text
+Username: admin
+Password: admin123
 ```
 
-**2. Navigate to the project directory**
+## Deploy to Render
 
-```bash
-cd University-Management
-```
+1. Push this repository to GitHub.
+2. Import it into Render.
+3. Render will use `render.yaml` and `Dockerfile` automatically.
+4. The app will run on port 8080.
 
-**3. Open the project**
+## Legacy project
 
-Open NetBeans IDE and select:
+The original NetBeans Swing application remains in the `src/university/management` directory. The new web application is a deployable version built in `src/main/java`.
 
-`File → Open Project`
+## Important note
 
-Choose the cloned `University-Management` folder.
-
-**4. Build and run**
-
-Build the project and run the main Java class from your IDE.
-
-## 🎯 Project Objectives
-
-- Apply Java programming concepts in a practical project.
-- Develop a university-related management application.
-- Understand project organization and software development workflows.
-- Improve problem-solving and programming skills.
-
-## 📖 Learning Outcomes
-
-Through this project, I aim to strengthen my understanding of:
-
-- Java programming
-- Object-oriented programming
-- Application development
-- Project organization
-- Software development practices
-
-## 👨‍💻 Developer
-
-**Md Jakuar Hossain Ovi**
-
-Computer Science & Engineering (CSE) Student
-
-GitHub: [@JakuarOvi](https://github.com/JakuarOvi)
-
-## 🔗 Repository
-
-[University Management System](https://github.com/JakuarOvi/University-Management)
-
-## ⭐ Support
-
-If you find this project interesting, consider giving the repository a ⭐ on GitHub.
-
----
-
-Developed with ❤️ using Java.
+The original project stores database credentials in source code. For a production deployment, move all secrets to environment variables and never commit them to the repository.

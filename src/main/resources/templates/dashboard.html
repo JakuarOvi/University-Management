@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav class="topbar">
+    <div class="brand">University Management</div>
+    <div class="nav-links">
+        <a th:href="@{/dashboard}">Dashboard</a>
+        <a th:href="@{/students}">Students</a>
+        <a th:href="@{/teachers}">Teachers</a>
+        <a th:href="@{/logout}">Logout</a>
+    </div>
+</nav>
+
+<main class="container">
+    <h2>Welcome, <span th:text="${username}">Admin</span></h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Students</h3>
+            <p class="count" th:text="${studentCount}">0</p>
+        </div>
+        <div class="card">
+            <h3>Teachers</h3>
+            <p class="count" th:text="${teacherCount}">0</p>
+        </div>
+        <div class="card">
+            <h3>Reports</h3>
+            <p>All key academic operations are available</p>
+        </div>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Teachers</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav class="topbar">
+    <div class="brand">University Management</div>
+    <div class="nav-links">
+        <a th:href="@{/dashboard}">Dashboard</a>
+        <a th:href="@{/students}">Students</a>
+        <a th:href="@{/teachers}">Teachers</a>
+        <a th:href="@{/logout}">Logout</a>
+    </div>
+</nav>
+
+<main class="container">
+    <h2>Teachers</h2>
+
+    <div class="panel-grid">
+        <div class="panel">
+            <h3>Add Teacher</h3>
+            <form th:action="@{/teachers}" method="post" th:object="${teacher}">
+                <label>Name</label>
+                <input type="text" th:field="*{name}" required>
+
+                <label>Department</label>
+                <input type="text" th:field="*{department}" required>
+
+                <label>Email</label>
+                <input type="email" th:field="*{email}" required>
+
+                <label>Designation</label>
+                <input type="text" th:field="*{designation}" required>
+
+                <button type="submit">Save Teacher</button>
+            </form>
+        </div>
+
+        <div class="panel table-panel">
+            <h3>Teacher List</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Designation</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="teacher : ${teachers}">
+                    <td th:text="${teacher.id}"></td>
+                    <td th:text="${teacher.name}"></td>
+                    <td th:text="${teacher.department}"></td>
+                    <td th:text="${teacher.designation}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+</body>
+</html>
